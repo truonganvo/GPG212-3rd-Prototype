@@ -10,6 +10,10 @@ public class CountDown : MonoBehaviour
     [SerializeField] GameObject enableTimer;
     [SerializeField] GameObject player;
 
+    [SerializeField] AudioSource raceStarting;
+    [SerializeField] AudioClip raceStartingNow;
+
+
 
     private void Update()
     {
@@ -19,6 +23,11 @@ public class CountDown : MonoBehaviour
         if (countDown <= 5)
         {
             player.SetActive(true);
+        }
+
+        if (countDown <= 3)
+        {
+            raceStarting.PlayOneShot(raceStartingNow);
         }
 
         if (countDown <= 0)

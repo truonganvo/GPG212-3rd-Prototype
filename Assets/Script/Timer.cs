@@ -23,10 +23,12 @@ public class Timer : MonoBehaviour
     {
         trackTheScore.text = PlayerPrefs.GetFloat("HighScore", 0f).ToString();
         secondsS.text = seconds.ToString("0.00");
+        trackTheScore.text = trackScore.ToString();
 
         if (reachDestination != true)
         {
             seconds += Time.deltaTime;
+            trackScore = seconds;
         }
     }
 
@@ -38,6 +40,12 @@ public class Timer : MonoBehaviour
         if (seconds < PlayerPrefs.GetFloat("HighScore", 0f))
         {
             PlayerPrefs.SetFloat("HighScore", seconds);
+            trackTheScore.text = seconds.ToString();
+        }
+        else
+        {
+            trackTheScore.text = trackScore.ToString();
+            PlayerPrefs.SetFloat("HighScore", trackScore);
         }
     }
 }
