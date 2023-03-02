@@ -8,11 +8,19 @@ public class CountDown : MonoBehaviour
     [SerializeField] float countDown = 25f;
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
     [SerializeField] GameObject enableTimer;
+    [SerializeField] GameObject player;
+
 
     private void Update()
     {
         textMeshProUGUI.text = countDown.ToString("00");
         countDown -= Time.deltaTime;
+
+        if (countDown <= 5)
+        {
+            player.SetActive(true);
+        }
+
         if (countDown <= 0)
         {
             countDown = 0;

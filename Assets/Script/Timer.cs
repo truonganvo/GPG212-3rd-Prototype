@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI secondsS;
+    [SerializeField] TextMeshProUGUI trackTheScore;
 
+    private float trackScore;
     [SerializeField] float seconds = 0;
     private bool reachDestination;
 
@@ -19,6 +21,7 @@ public class Timer : MonoBehaviour
     }
     private void Update()
     {
+        trackTheScore.text = PlayerPrefs.GetFloat("HighScore", 0f).ToString();
         secondsS.text = seconds.ToString("0.00");
 
         if (reachDestination != true)
@@ -32,5 +35,9 @@ public class Timer : MonoBehaviour
     public void FinishLine()
     {
         reachDestination = true;
+        if (seconds < PlayerPrefs.GetFloat("HighScore", 0f))
+        {
+            PlayerPrefs.SetFloat("HighScore", seconds);
+        }
     }
 }
