@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CountDown : MonoBehaviour
 {
-    [SerializeField] float countDown = 25f;
+    [SerializeField] float countDown = 10f;
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
     [SerializeField] GameObject enableTimer;
     [SerializeField] GameObject player;

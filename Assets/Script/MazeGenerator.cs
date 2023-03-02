@@ -127,7 +127,7 @@ public class MazeGenerator : MonoBehaviour
                 currentPath.RemoveAt(currentPath.Count - 1);
             }
 
-            yield return new WaitForSeconds(0.05f);
+            yield return null;
         }
     }
 }
